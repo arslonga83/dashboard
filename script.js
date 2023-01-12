@@ -41,3 +41,22 @@ function setTime() {
 }
 
 setInterval(setTime, 1000)
+
+// weather section
+navigator.geolocation.getCurrentPosition(position => getWeather(position))
+
+function getWeather(position) {
+  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=495619d270c09909b5c5a53a12eb4121&units=imperial`)
+  .then(res => {
+    if(!res.ok) {
+      throw Error('Weather data not available.')
+    }
+    return res.json()
+  })
+  .then(data => console.log(data))
+  .catch(error => console.error(error))
+}
+
+
+
+
