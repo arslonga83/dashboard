@@ -1,3 +1,4 @@
+// background image
 fetch('https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature')
   .then(res => res.json())
   .then(data => {
@@ -9,7 +10,8 @@ fetch('https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
     document.querySelector('#img-author').textContent = `By: Andrew Ridley`
   })
 
-  fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
+// crypto section
+fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
     .then(res => {
       if(!res.ok) {
         throw Error('Something went wrong.')
@@ -31,10 +33,11 @@ fetch('https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
     })
     .catch(err => console.log(err))
 
-setInterval(setTime, 1000)
 
+// time section
 function setTime() {
   document.querySelector('#time').textContent = `
     ${new Date().toLocaleTimeString('en-US', {timeStyle: 'short'})}`    
 }
 
+setInterval(setTime, 1000)
