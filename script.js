@@ -1,7 +1,6 @@
 fetch('https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature')
   .then(res => res.json())
   .then(data => {
-    console.log(data)
     document.body.style.backgroundImage =`url(${data.urls.full})`
     document.querySelector('#img-author').textContent = `By: ${data.user.name}`
   })
@@ -29,6 +28,13 @@ fetch('https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
       <p>Low: $${data.market_data.low_24h.usd}</p>
       </div>
       `
-     
     })
     .catch(err => console.log(err))
+
+setInterval(setTime, 1000)
+
+function setTime() {
+  document.querySelector('#time').textContent = `
+    ${new Date().toLocaleTimeString('en-US', {timeStyle: 'short'})}`    
+}
+
