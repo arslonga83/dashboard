@@ -53,10 +53,19 @@ function getWeather(position) {
     }
     return res.json()
   })
-  .then(data => console.log(data))
+  .then(data => displayWeather(data))
   .catch(error => console.error(error))
 }
 
-
+function displayWeather(data) {
+  console.log(data)
+  document.querySelector('#weather').innerHTML = `
+    <div class="weather-top">
+      <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">
+      <h2>${Math.round(data.main.temp)}°F</h2>
+    </div>
+    <p>${data.name}</p>
+  `
+}
 
 

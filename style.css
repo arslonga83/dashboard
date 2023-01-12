@@ -46,3 +46,18 @@ main {
   margin-top: 0.5em;
   margin-left: 0.5em;
 }
+
+.weather {
+  text-align: right;
+}
+
+.weather-top {
+  display: flex;
+  align-items: center;
+}
+
+.weather > p {
+  margin-top: -20px;
+  font-size: 1.2em;
+}
+
