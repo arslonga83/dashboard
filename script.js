@@ -37,6 +37,10 @@ fetch('https://api.coingecko.com/api/v3/coins/dogecoin')
 // time section
 function setTime() {
   document.querySelector('#time').textContent = `
+    ${new Date().toLocaleDateString('en-US', { weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric"} )} - 
     ${new Date().toLocaleTimeString('en-US', {timeStyle: 'short'})}`    
 }
 
