@@ -17,5 +17,18 @@ fetch('https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&que
       }
       return res.json()
     })
-    .then(data => console.log(data))
+    .then(data => {
+      document.querySelector('#crypto').innerHTML = `
+      <div class="crypto-top">
+      <img src=${data.image.small}>
+      <h3>${data.name}</h3>
+      </div>
+      <div class="crypto-bottom">
+      <p>Current: $${data.market_data.current_price.usd}</p>
+      <p>High: $${data.market_data.high_24h.usd}</p>
+      <p>Low: $${data.market_data.low_24h.usd}</p>
+      </div>
+      `
+     
+    })
     .catch(err => console.log(err))
